@@ -1,1 +1,56 @@
-<p>contact works!</p>
+<div class="write">
+  <h2>Write To Us</h2><!-- (ngSubmit)="sendEmail($event)" -->
+  <form [formGroup]="contactFrom" (ngSubmit)="sendEmail($event)">
+
+     <div class="row">
+        <div class="col-lg-6 col-12">
+           <div class="block">
+              <input type="text" id="name"
+              name="name"
+               placeholder="Name*" class="form-control" formControlName="name" >
+           </div>
+        </div>
+        <div class="col-lg-6 col-12">
+           <div class="block">
+              <input type="number" name="phone"
+               placeholder="Phone Number*" class="form-control" formControlName="phone" >
+           </div>
+        </div>
+        <div class="col-lg-6 col-12">
+           <div class="block">
+              <input type="email" name="email"
+               placeholder="Email Address*" class="form-control" formControlName="email" >
+           </div>
+        </div>
+        <div class="col-lg-6 col-12">
+           <div class="block">
+              <select class="form-select form-control" 
+              name="services" formControlName="services" >
+                 <option disabled [value]="null">Our Services*</option>
+                 <option value="WEB DESIGN">WEB DESIGN</option>
+                 <option value="WEB APPLICATION ARCHITECTURE">WEB APPLICATION ARCHITECTURE</option>
+                 <option value="SOFTWARE ENGINEERING">SOFTWARE ENGINEERING</option>
+                 <option value="MOBILE APPLICATION DEVELOPMENT">MOBILE APPLICATION DEVELOPMENT</option>
+                 <option value="PROJECT MANAGEMENT">PROJECT MANAGEMENT</option>
+                 <option value="SOFTWARE SUPPORT">SOFTWARE SUPPORT</option>
+                 <option value="ADDITIONAL TECHNICAL CONSULTATION">ADDITIONAL TECHNICAL CONSULTATION
+                 </option>
+              </select>
+           </div>
+        </div>
+        <div class="col-12">
+           <div class="block">
+              <textarea formControlName="message" name="message" id="" cols="30" rows="10"
+               class="form-control" placeholder="Message" ></textarea>
+           </div>
+        </div>
+        <div class="col-12 text-center my-3">
+
+           <button type="submit"  [disabled]="contactFrom.invalid"
+           class="btn btn-primary mt-3">
+              {{!loading ?'Send Message' : 'loading...'}} 
+           </button>
+        </div>
+     </div>
+  </form>
+</div>

@@ -1,1 +1,58 @@
-<p>careers works!</p>
+<div class="container">
+  <h2>JOB APPLICATION FORM</h2>
+  <form [formGroup]="contactFrom" (ngSubmit)="sendEmail($event)">
+<div class="row">
+     <div class="col-lg-6 col-12">
+        <div class="form-group">
+           <input type="text" placeholder="Name*" class="form-control" formControlName="name" name="name" >
+        </div>
+     </div>
+     <div class="col-lg-6 col-12">
+        <div class="form-group">
+           <input type="Email" placeholder="Email*" class="form-control" formControlName="email" name="email" >
+        </div>
+     </div>
+     <div class="col-lg-4 col-12">
+        <div class="form-group">
+           <input type="text" placeholder="Phone Number*" class="form-control" formControlName="phone" name="phone" >
+        </div>
+     </div>
+     <div class="col-lg-4 col-12">
+        <div class="form-group">
+           <input type="text" placeholder="Position you are applying for*" class="form-control" name="position" formControlName="position" >
+        </div>
+     </div>
+     <div class="col-lg-4 col-12">
+        <div class="form-group">
+           <input type="text" placeholder="Portfolio Link" class="form-control" name="portfolio_link" formControlName="portfolio_link" >
+        </div>
+     </div>
+   <!--   <div class="col-lg-6 col-12">
+        <div class="form-group">
+           <label for="cv">Upload CV</label> 
+           <input id="cv" class="ms-2" type="file" 
+           (change)="onFileSelect($event)"
+           name="cv_file"
+            >
+        </div>
+     </div> -->
+     <div class="col-12">
+        <div class="form-group">
+           <textarea id="" cols="30" rows="3" name="message"
+           class="form-control" formControlName="message"  placeholder="Message"></textarea>
+        </div>
+     </div>
+     <div class="col-12">
+        <div class="job-btn d-flex justify-content-center mt-3">
+           <button type="submit" 
+           [disabled]="contactFrom.invalid"
+           class="btn btn-primary" 
+           > {{!loading ?'Send Your CV' : 'loading...'}} 
+           </button>
+
+        </div>
+
+     </div>
+    </div>
+  </form>
+</div>
