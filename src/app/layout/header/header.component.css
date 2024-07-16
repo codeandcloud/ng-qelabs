@@ -1,0 +1,10 @@
+.qe-logo {
+  max-width: 175px;
+}
+.navbar-nav {
+  margin-left: 3.125rem;
+  & .nav-item {
+    display: flex;
+    gap: 3.125rem;
+  }
+}
