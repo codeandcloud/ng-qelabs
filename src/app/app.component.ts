@@ -22,7 +22,7 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
     ToastsContainer,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   private readonly document = inject(DOCUMENT);

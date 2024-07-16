@@ -6,7 +6,7 @@ import { MetaService } from '../../services/meta.service';
   standalone: true,
   imports: [],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
   private metaService = inject(MetaService);

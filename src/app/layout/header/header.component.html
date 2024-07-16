@@ -1,12 +1,12 @@
-<header class="border-bottom">
+<header class="border-bottom roboto-regular">
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand"
          routerLink="/">
         <figure>
-          <img class="qe-logo img-fluid rounded"
+          <img class="qe-logo img-fluid"
                loading="lazy"
-               src="images/qe-logo.png"
+               src="images/logos/qe-logo.png"
                title="Quantum Edge Labs Logo">
         </figure>
       </a>
@@ -21,9 +21,7 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link"
-               routerLink="/"
-               routerLinkActive="active"
-               [routerLinkActiveOptions]="{ exact: true }">Home</a>
+               routerLink="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"
@@ -32,8 +30,26 @@
           </li>
           <li class="nav-item">
             <a class="nav-link"
+               routerLink="/services"
+               routerLinkActive="active">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+               routerLink="/technologies"
+               routerLinkActive="active">Technologies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+               routerLink="/careers"
+               routerLinkActive="active">Careers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-pills"
                routerLink="/contact-us"
-               routerLinkActive="active">Contact Us</a>
+               routerLinkActive="active">
+              Get in Touch
+              <i class="ms-1 fa-solid fa-right-long d-none d-md-inline"></i>
+            </a>
           </li>
         </ul>
       </div>

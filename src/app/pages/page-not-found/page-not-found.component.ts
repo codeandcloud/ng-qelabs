@@ -6,7 +6,7 @@ import { MetaService } from '../../services/meta.service';
   standalone: true,
   imports: [],
   templateUrl: './page-not-found.component.html',
-  styleUrl: './page-not-found.component.scss',
+  styleUrl: './page-not-found.component.css',
 })
 export class PageNotFoundComponent implements OnInit {
   private metaService = inject(MetaService);

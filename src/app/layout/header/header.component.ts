@@ -7,7 +7,7 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
   standalone: true,
   imports: [RouterLink, RouterLinkActive, NgbCollapseModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   isCollapsedMenu = true;

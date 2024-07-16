@@ -5,7 +5,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './scroll-to-top.component.html',
-  styleUrl: './scroll-to-top.component.scss',
+  styleUrl: './scroll-to-top.component.css',
 })
 export class ScrollToTopComponent {
   @Output() scrollToTop = new EventEmitter<void>();

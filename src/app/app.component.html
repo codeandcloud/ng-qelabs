@@ -1,13 +1,15 @@
-<app-header></app-header>
-<main class="container-fluid">
-  <router-outlet />
-</main>
-<app-footer></app-footer>
-@if(showScroll$ | async) {
-<app-scroll-to-top (scrollToTop)="onScrollToTop()"></app-scroll-to-top>
-}
-<app-toasts></app-toasts>
+<div class="container">
+  <app-header></app-header>
+  <main>
+    <router-outlet />
+  </main>
+  <app-footer></app-footer>
+  @if(showScroll$ | async) {
+  <app-scroll-to-top (scrollToTop)="onScrollToTop()"></app-scroll-to-top>
+  }
+  <app-toasts></app-toasts>
 
-@if (loaderService.loader) {
-<app-loader></app-loader>
-}
+  @if (loaderService.loader) {
+  <app-loader></app-loader>
+  }
+</div>
