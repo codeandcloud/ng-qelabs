@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { MetaService } from '../../services/meta.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { MailService } from '../../services/mail.service';
 @Component({
   selector: 'app-careers',
   standalone: true,
@@ -13,7 +14,7 @@ export class CareersComponent implements OnInit {
   private metaService = inject(MetaService);
   contactFrom!: FormGroup;
   loading:boolean = false;
-  constructor(public fb: FormBuilder){}
+  constructor(public fb: FormBuilder,public service: MailService){}
   ngOnInit(): void {
     this.metaService.updateMeta({
       slug: 'careers',
@@ -25,7 +26,7 @@ export class CareersComponent implements OnInit {
       phone: [null, Validators.required],
       position: [null, Validators.required],
       portfolio_link: [null],
-      
+      cv_file: [null],
       message: [null]
     })
   }
@@ -49,5 +50,11 @@ export class CareersComponent implements OnInit {
   }
 
   
-
+  async onFileSelect(event: any) {
+    const fileInput = event.target;
+    let file =event.target.files[0]
+    //let uploadedRes = await this.service.uploadFile(`cv/${file.name}`, file, file.name)
+ // console.log(uploadedRes,"uploadedRes")
+    fileInput.value = ''
+  }
 }

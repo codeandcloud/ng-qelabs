@@ -14,6 +14,8 @@ import {
 
 import { routes } from './app.routes';
 import { TemplatePageTitleStrategy } from './services/title.strategy';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 const firebaseOptions: FirebaseOptions = {
   apiKey: 'AIzaSyDer-3nEgkd8ywxHfAfcnT6Sd65eAmMBEY',
@@ -31,6 +33,8 @@ export const appConfig: ApplicationConfig = {
       BrowserAnimationsModule
     ),
     provideFirebaseApp(() => initializeApp(firebaseOptions)),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     {
       provide: TitleStrategy,
       useClass: TemplatePageTitleStrategy,
