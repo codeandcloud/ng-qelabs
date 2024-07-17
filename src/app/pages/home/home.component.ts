@@ -1,5 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+// import {
+//   Storage,
+//   getDownloadURL,
+//   ref,
+//   uploadBytesResumable,
+// } from '@angular/fire/storage';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { storage } from '../../firebase/firebase.init';
 import { MetaService } from '../../services/meta.service';
 
@@ -12,6 +18,7 @@ import { MetaService } from '../../services/meta.service';
 })
 export class HomeComponent implements OnInit {
   private metaService = inject(MetaService);
+  // private storage = inject(Storage);
 
   file?: File;
 
@@ -22,16 +29,13 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onChange(event: any) {
-    this.file = event?.target?.files[0] ?? undefined;
-  }
-
-  async uploadFile() {
-    const storageRef = ref(storage, 'some-child');
-    if (!this.file) {
+  async uploadFile(input: HTMLInputElement) {
+    if (!input.files) {
       return;
     }
-    uploadBytes(storageRef, this.file).then((snapshot) => {
+    const file = input.files[0];
+    const storageRef = ref(storage, file.name);
+    uploadBytes(storageRef, file).then((snapshot) => {
       console.log('Uploaded a blob or file!', snapshot);
 
       // Getting the download URL
