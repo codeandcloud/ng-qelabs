@@ -1,0 +1,16 @@
+<div class="banner-container">
+  <div class="row banner-row">
+    @if(banner(); as banner) {
+    <div class="col-12 col-lg-7 order-lg-2">
+      <div class="inner-image"
+           [ngStyle]="getBackgroundImage(banner.image)">
+
+      </div>
+    </div>
+    <div class="col-12 col-lg-5">
+      <h1>{{ banner.title }}</h1>
+      <p [innerHTML]="banner.description"></p>
+    </div>
+    }
+  </div>
+</div>

@@ -1,64 +1,83 @@
-<nav class="navbar navbar-expand-md">
-  <div class="container d-flex justify-content-between align-items-center">
-    <div class="d-flex">
-      <a href="#"
-         class="navbar-brand">
-        <figure style="height: auto; width: 180px;">
+<header class="container">
+  <nav class="navbar">
+    <div class="d-flex justify-content-between w-100">
+      <a class="navbar-brand"
+         routerLink="/">
+        <figure>
           <img class="qe-logo img-fluid rounded"
                loading="lazy"
-               src="images/qe-logo.png"
+               src="images/logos/qe-logo.png"
                title="Quantum Edge Labs Logo">
         </figure>
       </a>
-      <div class="d-flex align-items-center">
-        <button type="button"
-                class="btn btn-dark px-4 d-md-none">Get In Touch <i
-             class="bi bi-arrow-right text-light ms-2 rounded-pill"></i></button>
-        <button class="navbar-toggler ms-2"
-                type="button"
-                (click)="toggleCollapseMenu()"
-                title="Navbar Collapse">
-          <i class="fa-thin fa-bars"></i>
-        </button>
+      <div class="d-none d-lg-block">
+        <ng-container *ngTemplateOutlet="menuItemTemplate">
+        </ng-container>
+      </div>
+      <div class="d-flex d-lg-none align-items-start">
+        <a class="qe-highlight"
+           routerLink="contact-us">
+          <label>Get In Touch</label>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <div role="button"
+             class="qe-toggler"
+             title="Toggle Navigation"
+             (click)="openSideMenu(content)">
+          <i class="fa fa-bars"></i>
+        </div>
       </div>
     </div>
-    <div class="collapse navbar-collapse roboto-regular justify-content-start"
-         [(ngbCollapse)]="isCollapsedMenu"
-         [ngStyle]="{'color':isCollapsedMenu ? 'black': 'white'}">
-      <button type="button"
-              class="btn-close btn-close-white d-flex"
-              aria-label="Close"
-              (click)="toggleCollapseMenu()"></button>
+  </nav>
+</header>
 
-      <ul class="navbar-nav">
-        <li class="nav-item pe-5">
-          <a routerLink="/"
-             class="nav-link">Home</a>
-        </li>
-        <li class="nav-item pe-5">
-          <a routerLink="/about-us"
-             class="nav-link d-flex">About Us</a>
-        </li>
-        <li class="nav-item pe-5">
-          <a routerLink="/technologies"
-             class="nav-link">Technologies</a>
-        </li>
-        <li class="nav-item pe-5">
-          <a routerLink="/services"
-             class="nav-link">Services</a>
-        </li>
-        <li class="nav-item pe-5">
-          <a routerLink="/careers"
-             class="nav-link">Careers</a>
-        </li>
-        <li class="nav-item pe-5">
-          <a routerLink="/contact-us"
-             class="nav-link">Contact</a>
-        </li>
-      </ul>
+<ng-template #content
+             let-offcanvas>
+  <div class="offcanvas-header">
+    <div role="button"
+         aria-label="Close"
+         (click)="offcanvas.dismiss('Cross click')">
+      <i class="fa-solid fa-xmark"></i>
     </div>
-    <button type="button"
-            class="btn btn-dark d-none d-md-inline  rounded-pill">Get In Touch <i
-         class="bi bi-arrow-right text-light ms-2"></i></button>
   </div>
-</nav>
+  <div class="offcanvas-body">
+    <ng-container *ngTemplateOutlet="menuItemTemplate">
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #menuItemTemplate>
+  <ul role="menu"
+      class="qe-menu">
+    <li role="menuitem">
+      <a aria-current="page"
+         routerLink="/"
+         routerLinkActive="active-link"
+         [routerLinkActiveOptions]="{exact: true}">Home</a>
+    </li>
+    <li role="menuitem">
+      <a routerLink="about-us"
+         routerLinkActive="active-link">About</a>
+    </li>
+    <li role="menuitem">
+      <a routerLink="technologies"
+         routerLinkActive="active-link">Technologies</a>
+    </li>
+    <li role="menuitem">
+      <a routerLink="services"
+         routerLinkActive="active-link">Services</a>
+    </li>
+    <li role="menuitem">
+      <a routerLink="careers"
+         routerLinkActive="active-link">Careers</a>
+    </li>
+    <li class="d-none d-lg-block"
+        role="menuitem">
+      <a class="qe-highlight"
+         routerLink="contact-us">
+        <label>Get In Touch</label>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </li>
+  </ul>
+</ng-template>

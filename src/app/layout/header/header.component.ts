@@ -1,17 +1,33 @@
-import { NgStyle } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, inject, TemplateRef } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbCollapseModule,
+  NgbOffcanvas,
+  NgbOffcanvasConfig,
+  NgbOffcanvasOptions,
+  OffcanvasDismissReasons,
+} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, NgbCollapseModule, NgStyle],
+  imports: [CommonModule, RouterLink, RouterLinkActive, NgbCollapseModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  isCollapsedMenu = true;
+  private offcanvasService = inject(NgbOffcanvas);
+  private offcanvasConfig = inject(NgbOffcanvasConfig);
+  closeResult = '';
 
-  toggleCollapseMenu = () => (this.isCollapsedMenu = !this.isCollapsedMenu);
+  constructor() {
+    this.offcanvasConfig.ariaLabelledBy = 'offcanvas-menu';
+    this.offcanvasConfig.panelClass = 'offcanvas-panel';
+    this.offcanvasConfig.position = 'end';
+  }
+
+  openSideMenu(content: TemplateRef<any>) {
+    this.offcanvasService.open(content);
+  }
 }

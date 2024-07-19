@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { environment } from '../../environments/environment';
-import { MetaModel } from '../models/meta.model';
+import { MetaModel } from '../models/meta.type';
 
 @Injectable({
   providedIn: 'root',

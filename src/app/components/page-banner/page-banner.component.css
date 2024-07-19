@@ -1,0 +1,26 @@
+.banner-container {
+  background-color: var(--clr-gray-400);
+  padding: 3rem 0;
+}
+
+.banner-row {
+  max-width: 62.5rem;
+  margin: 0 auto;
+}
+
+.inner-image {
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  height: 22rem;
+  max-width: 31.25rem;
+  margin-left: 4.75rem;
+  border-radius: 2.25rem 1rem;
+}
+
+@media (max-width: 991.98px) {
+  .inner-image {
+    margin-left: 0;
+    margin-bottom: 1.5rem;
+  }
+}

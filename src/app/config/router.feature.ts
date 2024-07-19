@@ -5,6 +5,7 @@ import {
 } from '@angular/router';
 
 const scrollConfig: InMemoryScrollingOptions = {
+  anchorScrolling: 'enabled',
   scrollPositionRestoration: 'top',
 };
 

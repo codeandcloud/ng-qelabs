@@ -1,0 +1,28 @@
+.hello-section {
+  h2 {
+    margin-bottom: 2rem;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 991.98px) {
+  .hello-section {
+    p {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    label,
+    i,
+    strong {
+      display: block;
+    }
+  }
+  .hello-section,
+  .contact-section {
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+}

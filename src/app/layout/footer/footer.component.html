@@ -1,49 +1,63 @@
-<div class="footer-main">
-  <div class="container pt-5 pb-5">
+<footer>
+  <div class="container">
     <div class="row">
-      <div class="col col-lg-4 col-md-5 col-5">
+      <div class="col-6 col-lg-3 text-center">
         <a href="#"
            class="navbar-brand">
           <figure>
-            <img class="qe-logo img-fluid rounded"
+            <img class="qe-footer-logo img-fluid"
                  loading="lazy"
-                 src="images/img/f-logo.png"
+                 src="images/logos/qe-logo-square.png"
                  title="Quantum Edge Labs Logo">
           </figure>
         </a>
       </div>
-      <div class="col col-lg-5 col-md-7 col-7">
-        <div class="dir">
-          <img src="images/img/place.png"
-               alt="">
-          <p>Quantum Edge pioneers tailored technology solutions for an ever-evolving digital landscape.</p>
-        </div>
-        <ul class="footer-social d-flex list-unstyled">
-          <li class="px-2"><a href=""><img src="images/img/fb.png"
-                   alt=""></a></li>
-          <li class="px-2"><a href=""><img src="images/img/insta.png"
-                   alt=""></a></li>
-          <li class="px-2"><a href=""><img src="images/img/linkdin.png"
-                   alt=""></a></li>
-        </ul>
+      <div class="col-6 col-lg-6">
+        <p class="fs-5 fst-italic">
+          Quantum Edge pioneers tailored technology solutions for an ever-evolving digital landscape.
+        </p>
+        <section class="qe-footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61563010408058"
+             title="Facebook Page">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="https://x.com/QuantumEdgeLabs"
+             title="X(Twitter) Page">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/quantum-edge-labs"
+             title="LinkedIn Page">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </section>
       </div>
-      <div class="col col-lg-3 col-12">
-        <span class="q-links">
+      <div class="col-12 col-lg-3 text-center">
+        <span class="d-none d-lg-block my-2">
           <h2>Quick Links</h2>
         </span>
-        <ul class="flex-wrap position-relative list-unstyled ps-4">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="technologies.html">Technologies</a></li>
-          <li><a href="career.html">Careers</a></li>
-          <li><a href="contact.html">Contact</a></li>
+        <ul role="menu"
+            class="qe-footer-links d-flex flex-row flex-lg-column">
+          <li role="menuitem"><a routerLink="/"
+               routerLinkActive="link-active"
+               [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+          <li role="menuitem"><a routerLink="about-us"
+               routerLinkActive="link-active">About</a></li>
+          <li role="menuitem"><a routerLink="services"
+               routerLinkActive="link-active">Services</a></li>
+          <li role="menuitem"><a routerLink="technologies"
+               routerLinkActive="link-active">Technologies</a></li>
+          <li role="menuitem"><a routerLink="careers"
+               routerLinkActive="link-active">Careers</a></li>
+          <li role="menuitem"><a routerLink="contact-us"
+               routerLinkActive="link-active">Contact</a></li>
         </ul>
       </div>
-      <div class="footer-bottom mt-5">
-        Copyright © 2023 -All rights reserved | Quantum Edge Labs Private
-        Limited
-      </div>
+    </div>
+    <div class="text-center py-4">
+      <span>Copyright &copy; 2023-{{currentYear}} | All rights reserved </span>
+      <span class="d-none d-lg-inline">| </span>
+      <span class="d-block d-lg-none"></span>
+      <span>Quantum Edge Labs Private Limited.</span>
     </div>
   </div>
-</div>
+</footer>

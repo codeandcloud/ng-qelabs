@@ -1,6 +1,5 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "../public/css/variables.css";
-@import "../public/css/fonts.css";
 
 *,
 *::before,
@@ -9,14 +8,121 @@
 }
 
 html {
-  color-scheme: var(--color-scheme);
   font-size: 16px;
 }
 
 body {
-  background: var(--clr-white);
+  background: var(--bg-primary);
+  color: var(--clr-primary);
+  font-family: var(--font-family);
   font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
   line-height: 1.6;
   margin: 0;
   scroll-behavior: smooth;
+}
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 2.75rem;
+}
+ul[role="menu"] {
+  font-family: var(--font-family);
+  font-size: 1.1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+.offcanvas-panel {
+  background: var(--clr-primary);
+  color: var(--bg-primary);
+  opacity: 0.9;
+  width: 15rem !important;
+}
+
+.qe-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-primary);
+  border-radius: 1.5rem;
+  color: var(--bg-primary) !important;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 1.1rem;
+  height: 40px;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 5px 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  & label {
+    margin-right: 0.5rem;
+  }
+  &:hover {
+    background: var(--clr-highlight);
+  }
+}
+
+.qe-button-center .qe-button {
+  margin: 0 auto !important;
+}
+.qe-section {
+  max-width: 75rem;
+  margin-bottom: 4.5rem;
+}
+.bordered-form {
+  border: 1px solid var(--clr-gray-600);
+  max-width: 62.5rem;
+}
+.qe-form {
+  margin: 0 auto;
+  padding: 1rem 0;
+  .row {
+    margin: 0;
+    padding: 0;
+    & > div {
+      padding: 0;
+    }
+    & > div + div {
+      padding-left: 2rem;
+    }
+    + .row {
+      margin-top: 2rem;
+    }
+    input,
+    select,
+    textarea {
+      border-radius: 0;
+      border-width: 0;
+      border-bottom-width: 1px;
+      &:focus {
+        border-color: var(--clr-highlight);
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+  .qe-form {
+    .row {
+      & > div {
+        margin-top: 2rem;
+      }
+      & > div + div {
+        padding-left: 0;
+      }
+      + .row {
+        margin-top: 0;
+      }
+    }
+  }
 }

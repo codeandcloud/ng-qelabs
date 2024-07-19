@@ -20,7 +20,17 @@
   align-items: center;
   border-radius: 50%;
   padding: 1rem;
-  background-color: var(--clr-primary-500);
-  color: var(--clr-white);
+  background-color: var(--clr-primary);
+  color: var(--bg-primary);
   font-size: 0.5rem;
+}
+.triangle-up {
+  position: relative;
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-right: 0.5em solid var(--bg-primary);
+  border-top: 0.5em solid var(--bg-primary);
+  transform: rotate(-45deg);
 }

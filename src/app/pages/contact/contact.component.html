@@ -1,56 +1,110 @@
-<div class="write">
-  <h2>Write To Us</h2><!-- (ngSubmit)="sendEmail($event)" -->
-  <form [formGroup]="contactFrom" (ngSubmit)="sendEmail($event)">
+<app-page-banner [banner]="banner"></app-page-banner>
+<div class="container">
+  <div class="qe-section hello-section">
+    <h2>Say Hello!</h2>
+    <p>
+      <strong>Start A Project</strong>
+      <i class="mx-2 fa-solid fa-arrow-right-long"></i>
+      <label> info&#64;qelabs.in</label>
+    </p>
+    <p>
+      <strong>Join Quantum Edge</strong>
+      <i class="mx-2 fa-solid fa-arrow-right-long"></i>
+      <label>career&#64;qelabs.in</label>
+    </p>
+    <p>
+      <strong>Call Us</strong>
+      <i class="mx-2 fa-solid fa-arrow-right-long"></i>
+      <label>+91 484-2388176</label>
+      <strong class="d-block">(Monday - Friday: 09:00AM-05:30PM IST)</strong>
+    </p>
+  </div>
+  <div class="qe-section contact-section">
+    <h2 class="mt-4">Write To Us</h2>
+    <form [formGroup]="contactFrom"
+          class="qe-form"
+          (ngSubmit)="sendEmail($event)">
 
-     <div class="row">
+      <div class="row">
         <div class="col-lg-6 col-12">
-           <div class="block">
-              <input type="text" id="name"
-              name="name"
-               placeholder="Name*" class="form-control" formControlName="name" >
-           </div>
+          <div class="block">
+            <input type="text"
+                   id="name"
+                   name="name"
+                   placeholder="Name*"
+                   class="form-control"
+                   formControlName="name">
+          </div>
         </div>
         <div class="col-lg-6 col-12">
-           <div class="block">
-              <input type="number" name="phone"
-               placeholder="Phone Number*" class="form-control" formControlName="phone" >
-           </div>
+          <div class="block">
+            <input type="number"
+                   name="phone"
+                   placeholder="Phone Number*"
+                   class="form-control"
+                   formControlName="phone">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-12">
+          <div class="block">
+            <input type="email"
+                   name="email"
+                   placeholder="Email Address*"
+                   class="form-control"
+                   formControlName="email">
+          </div>
         </div>
         <div class="col-lg-6 col-12">
-           <div class="block">
-              <input type="email" name="email"
-               placeholder="Email Address*" class="form-control" formControlName="email" >
-           </div>
+          <div class="block">
+            <select class="form-select"
+                    title="services"
+                    placeholder="Services*"
+                    formControlName="services">
+              <option disabled
+                      [value]="null">Our Services*</option>
+              <option value="GENERAL">GENERAL</option>
+              <option value="WEB DESIGN">WEB DESIGN</option>
+              <option value="WEB APPLICATION ARCHITECTURE">WEB APPLICATION ARCHITECTURE</option>
+              <option value="SOFTWARE ENGINEERING">SOFTWARE ENGINEERING</option>
+              <option value="MOBILE APPLICATION DEVELOPMENT">MOBILE APPLICATION DEVELOPMENT</option>
+              <option value="PROJECT MANAGEMENT">PROJECT MANAGEMENT</option>
+              <option value="SOFTWARE SUPPORT">SOFTWARE SUPPORT</option>
+              <option value="ADDITIONAL TECHNICAL CONSULTATION">ADDITIONAL TECHNICAL CONSULTATION</option>
+
+            </select>
+          </div>
         </div>
-        <div class="col-lg-6 col-12">
-           <div class="block">
-              <select class="form-select form-control" 
-              name="services" formControlName="services" >
-                 <option disabled [value]="null">Our Services*</option>
-                 <option value="WEB DESIGN">WEB DESIGN</option>
-                 <option value="WEB APPLICATION ARCHITECTURE">WEB APPLICATION ARCHITECTURE</option>
-                 <option value="SOFTWARE ENGINEERING">SOFTWARE ENGINEERING</option>
-                 <option value="MOBILE APPLICATION DEVELOPMENT">MOBILE APPLICATION DEVELOPMENT</option>
-                 <option value="PROJECT MANAGEMENT">PROJECT MANAGEMENT</option>
-                 <option value="SOFTWARE SUPPORT">SOFTWARE SUPPORT</option>
-                 <option value="ADDITIONAL TECHNICAL CONSULTATION">ADDITIONAL TECHNICAL CONSULTATION
-                 </option>
-              </select>
-           </div>
-        </div>
+      </div>
+      <div class="row">
         <div class="col-12">
-           <div class="block">
-              <textarea formControlName="message" name="message" id="" cols="30" rows="10"
-               class="form-control" placeholder="Message" ></textarea>
-           </div>
+          <div class="block">
+            <textarea formControlName="message"
+                      name="message"
+                      cols="5"
+                      rows="5"
+                      class="form-control"
+                      placeholder="Message">
+            </textarea>
+          </div>
         </div>
-        <div class="col-12 text-center my-3">
-
-           <button type="submit"  [disabled]="contactFrom.invalid"
-           class="btn btn-primary mt-3">
-              {{!loading ?'Send Message' : 'loading...'}} 
-           </button>
-        </div>
-     </div>
-  </form>
+      </div>
+      <div class="qe-button-center my-3">
+        <app-qe-button [buttonText]="'Send Message'"
+                       [disabled]="contactFrom.invalid"
+                       (buttonClicked)="handleButtonClick()">
+        </app-qe-button>
+      </div>
+    </form>
+  </div>
+  <div class="qe-section hello-section">
+    <h2>Drop by for a cup of coffee</h2>
+    <p>
+      QUANTUM EDGE LABS PRIVATE LIMITED <br>
+      No. 4/461, 2nd Floor, Suite No.1411 <br>
+      Valamkottil Towers, Thrikakkara,Kakkanad <br>
+      Ernakulam Kerala 682021 India
+    </p>
+  </div>
 </div>

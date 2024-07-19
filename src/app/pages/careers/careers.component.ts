@@ -1,7 +1,14 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MetaService } from '../../services/meta.service';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import emailjs from '@emailjs/browser';
+// import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+// import { storage } from '../../firebase/firebase.init';
 import { MailService } from '../../services/mail.service';
 @Component({
   selector: 'app-careers',
@@ -13,8 +20,10 @@ import { MailService } from '../../services/mail.service';
 export class CareersComponent implements OnInit {
   private metaService = inject(MetaService);
   contactFrom!: FormGroup;
-  loading:boolean = false;
-  constructor(public fb: FormBuilder,public service: MailService){}
+  loading: boolean = false;
+  file?: File;
+
+  constructor(public fb: FormBuilder, public service: MailService) {}
   ngOnInit(): void {
     this.metaService.updateMeta({
       slug: 'careers',
@@ -27,34 +36,51 @@ export class CareersComponent implements OnInit {
       position: [null, Validators.required],
       portfolio_link: [null],
       cv_file: [null],
-      message: [null]
-    })
+      message: [null],
+    });
   }
 
-  public sendEmail(data: Event) {
+  async sendEmail(data: Event) {
     this.loading = true;
-    emailjs
-      .sendForm('service_w036nuv', 'template_rxl7wqr', data.target as HTMLFormElement, {
-        publicKey: 'V08l-WfCBVyrm2dLo',
-      })
-      .then(
-        (res) => {
-          this.contactFrom.reset()
-          this.loading = false;
-        },
-        (error:any) => {
-          console.log(error,"er")
-          this.loading = false;
-        },
-      );
+    // const downloadURL = await this.uploadFile();
+    const form = data.target as HTMLFormElement;
+    console.log(form);
+    // emailjs
+    //   .sendForm('service_w036nuv', 'template_rxl7wqr', form, {
+    //     publicKey: 'V08l-WfCBVyrm2dLo',
+    //   })
+    //   .then(
+    //     (res) => {
+    //       this.contactFrom.reset();
+    //       this.loading = false;
+    //     },
+    //     (error: any) => {
+    //       console.log(error, 'er');
+    //       this.loading = false;
+    //     }
+    //   );
   }
 
-  
-  async onFileSelect(event: any) {
-    const fileInput = event.target;
-    let file =event.target.files[0]
-    //let uploadedRes = await this.service.uploadFile(`cv/${file.name}`, file, file.name)
- // console.log(uploadedRes,"uploadedRes")
-    fileInput.value = ''
+  onFileChange(event: any) {
+    this.file = event.target.files[0];
   }
+
+  // async uploadFile() {
+  //   if (!this.file) {
+  //     return '';
+  //   }
+  //   let downloadURL = '';
+  //   try {
+  //     const storageRef = ref(storage, this.file.name);
+  //     var snapshot = await uploadBytes(storageRef, this.file);
+  //     console.log('Uploaded a blob or file!', snapshot);
+  //     downloadURL = await getDownloadURL(snapshot.ref);
+  //     console.log('File available at', downloadURL);
+  //     return downloadURL;
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     return downloadURL;
+  //   }
+  // }
 }
