@@ -19,7 +19,7 @@ import { PageBannerComponent } from '../../components/page-banner/page-banner.co
 })
 export class ContactComponent implements OnInit {
   private metaService = inject(MetaService);
-
+  buttonText = 'Send Message';
   banner!: Banner;
 
   contactFrom!: FormGroup;
@@ -81,6 +81,6 @@ export class ContactComponent implements OnInit {
   }
 
   handleButtonClick = () => {
-    console.log('Button clicked!');
+    console.log('data');
   };
 }

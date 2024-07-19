@@ -1,0 +1,23 @@
+.container {
+  font-size: 19px;
+  line-height: 35px;
+  text-align: center;
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+}
+.culture {
+  font-size: 35px;
+  color: #555;
+  font-family: "Roboto-Medium";
+  margin-bottom: 25px;
+  text-align: center;
+  img {
+    max-width: 300px;
+  }
+}
+
+section {
+  padding: 35px 0;
+}

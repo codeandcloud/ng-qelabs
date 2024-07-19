@@ -1,0 +1,13 @@
+<section class="culture-section">
+  <div class="row d-flex">
+    @for (banner of cultureBanners(); track banner.title) {
+    <div class="col-lg-3">
+      <img [src]="banner.image"
+           [alt]="banner.title">
+      <h4 class="p-2">{{banner.title}}</h4>
+      <p>{{banner.description}}</p>
+    </div>
+    }
+
+  </div>
+</section>

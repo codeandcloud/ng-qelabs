@@ -1,0 +1,25 @@
+.culture-section {
+  margin-bottom: 15px;
+  /* max-width: 900px; */
+  .col-lg-3 {
+    background: #fafafa;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    text-align: center;
+    min-height: 400px;
+    font-size: 17px;
+    line-height: 27px;
+    padding: 19px;
+    margin: 0.1999rem;
+    img {
+      max-width: 60px;
+      margin-top: 18px;
+    }
+  }
+}
+
+@media (min-width: 991px) {
+  .row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}

@@ -1,1 +1,34 @@
-<p>about-us works!</p>
+<app-page-banner [banner]="pageBanner"></app-page-banner>
+<div class="container">
+  <section class="description">
+    <p>No cookie cutter solutions here. We are an innovative, creative, and understandable technology source. We’re not
+      the IT guys having our own little computer party…you’re invited to be the guest of honour. After all, it’s YOUR
+      business; you know it better than anyone else. Shouldn’t the solution start with YOU?</p>
+    <p>Quantum Edge stands apart by providing innovative, bespoke technological solutions that cater to your distinct
+      needs. We prioritise your vision, ensuring that our solutions resonate with your unique business identity and
+      aspirations.</p>
+  </section>
+
+
+
+  <section class="collage-image-section">
+    <img src="images/about/about-us-collage.jpg"
+         alt="">
+  </section>
+
+  <section class="image-section mt-0">
+    <img src="images/about/about-us-culture.png"
+         alt="">
+  </section>
+
+  <section class="culture">
+    <h2>Culture And Work Environment</h2>
+    <div class="opacity-25">
+      <img src="images/about/hierarchy-tree.png"
+           alt="">
+    </div>
+  </section>
+  <app-about-culture-work [cultureBanners]="aboutUsBanners"></app-about-culture-work>
+  <!--cutureBanners is the input name and aboutUsBanners is the javascript object-->
+
+</div>
