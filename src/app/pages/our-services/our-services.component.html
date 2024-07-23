@@ -1,1 +1,32 @@
-<p>our-services works!</p>
+<app-page-banner [banner]="pageBanner"></app-page-banner>
+<div class="container">
+  <app-service-list [serviceListBanners]="serviceBanner"></app-service-list>
+
+  <section class="service-contact mx-4 mt-5 mb-5">
+    <div class="service-bottom text-center">
+      <h1>HAVE A PROJECT IN MIND?</h1>
+      <h4>GET IN TOUCH WITH US TODAY</h4>
+
+      <div class="cls-email">
+        <div class="email"> <button class="btn">
+            <i class="bi bi-envelope icon-email"></i><span class="">EMAIL US</span>
+          </button></div>
+
+
+        <div class="d-flex contacts">
+          <i class="fa-sharp fa-solid fa-phone-volume"></i>
+
+          <p> GETTING TOUCH IS EASY <br>
+
+            <a href="tel:+914842388176">+91 484-2388176</a>
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+  </section>
+</div>

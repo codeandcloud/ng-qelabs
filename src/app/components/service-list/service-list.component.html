@@ -1,7 +1,7 @@
-<section class="culture-section">
-  <div class="row d-flex">
-    @for (banner of cultureBanners(); track banner.title) {
-    <div class="col-lg-3">
+<div>
+  <div class="service-list row">
+    @for (banner of serviceListBanners(); track banner.title) {
+    <div class="col-lg-4  col-12">
       <img [src]="banner.image"
            [alt]="banner.title">
       <h4 class="p-2">{{banner.title}}</h4>
@@ -9,4 +9,4 @@
     </div>
     }
   </div>
-</section>
+</div>
