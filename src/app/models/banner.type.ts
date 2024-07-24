@@ -1,5 +1,5 @@
 export type Banner = {
-  description: string;
+  description?: string;
   image: string;
-  title: string;
+  title?: string;
 };

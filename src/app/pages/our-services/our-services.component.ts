@@ -3,11 +3,12 @@ import { MetaService } from '../../services/meta.service';
 import { Banner } from '../../models/banner.type';
 import { PageBannerComponent } from '../../components/page-banner/page-banner.component';
 import { ServiceListComponent } from '../../components/service-list/service-list.component';
+import { ContactBottomComponent } from '../../components/contact-bottom/contact-bottom.component';
 
 @Component({
   selector: 'app-our-services',
   standalone: true,
-  imports: [PageBannerComponent, ServiceListComponent],
+  imports: [PageBannerComponent, ServiceListComponent, ContactBottomComponent],
   templateUrl: './our-services.component.html',
   styleUrl: './our-services.component.css',
 })
