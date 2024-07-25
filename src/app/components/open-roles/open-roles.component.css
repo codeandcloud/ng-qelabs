@@ -1,0 +1,108 @@
+h1,
+h2,
+h3,
+h4,
+p {
+  font-weight: 400;
+}
+
+.block {
+  padding: 25px;
+  color: #333;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin: 15px;
+  align-items: center !important;
+}
+
+.container {
+  padding: 100px 0;
+}
+
+@media (min-width: 992px) {
+  .col-lg-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+  .col-12 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .position .block .info,
+  .position .block {
+    justify-content: center;
+  }
+}
+
+.position .block {
+  padding: 25px;
+  color: #333;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin: 15px;
+}
+
+.sub-block {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+@media only screen and (max-width: 767px) {
+  .position .block .position .block {
+    text-align: center;
+  }
+  .head {
+    justify-content: center;
+  }
+  h3 {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+.position .block h3 {
+  font-size: 27px;
+  margin-bottom: 25px;
+}
+
+.position .block h4 {
+  font-size: 19px;
+  color: #222;
+  margin-right: 10px;
+}
+
+.position .block p {
+  font-size: 20px;
+  color: #333;
+  position: relative;
+  top: 2px;
+}
+p {
+  font-family: "Roboto-Regular";
+  font-size: 17px;
+  line-height: 25px;
+}
+
+.col-md-4 {
+  display: flex;
+}
+
+@media only screen and (max-width: 767px) {
+  app-qe-button {
+    max-width: 250px;
+    margin: 25px auto;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .position .block p {
+    position: relative;
+    top: 5px;
+  }
+}
+
+.head {
+  margin-bottom: 10px;
+}

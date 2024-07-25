@@ -1,37 +1,42 @@
-<div class="banner-container">
-  <div class="row d-flex flex-row">
-    @if(role(); as roles) {
-    <!-- <div class="col-12 col-lg-6">
-      <div class="block d-flex align-items-center flex-wrap">
-        <div class="col-md-8 col-12 ">
-          <h1></h1>
-          <div class="title d-flex">
-            <h2>[innerHTML]="role.title"</h2>
+<div class="container">
+  <div class="d-flex flex-wrap position">
+    @for(roles of roles(); track roles) {
+
+    <div class="col-12 col-lg-6">
+      <div class="block d-flex align-item-center flex-wrap flex-row">
+        <div class="col-md-8 col-12 sub-block">
+          <div>
+            <h3>{{roles.title}}</h3>
           </div>
 
-          <div class="experience d-flex">
-            <h4>Experience</h4>
-            <p>[innerHTML]="role.experience"</p>
+          <div class="d-flex head align-items-center">
+            <h4>Experience:</h4>
+            <p>{{roles.experience}}</p>
           </div>
 
-          <div class="location d-flex">
-            <h4>Location</h4>
-            <p>[innerHTML]="role.location"</p>
+          <div class="d-flex head align-items-center">
+            <h4>Location:</h4>
+            <p>{{roles.location}}</p>
           </div>
 
-          <div class="position d-flex">
-            <h4>Position</h4>
-            <p>[innerHTML]="role.position"</p>
+          <div class="d-flex head  align-items-center">
+            <h4>Position:</h4>
+            <p>{{roles.position}}</p>
           </div>
-          <div class="skill d-flex">
-            <h4>Skill</h4>
-            <p>[innerHTML]="role.skill"</p>
+
+          <div class="d-flex head  align-items-center">
+            <h4>Skill:</h4>
+            <p>{{roles.skill}}</p>
           </div>
         </div>
+        <div class="cls-button col-md-4 col-12 d-flex justify-content-center">
+          <app-qe-button [buttonText]="buttonText"
+                         [disabled]="isButtonDisabled"
+                         (buttonClicked)="handleButtonClick()">
+          </app-qe-button>
+        </div>
       </div>
-
-    </div> -->
-    {{roles.experience}}
+    </div>
     }
   </div>
 </div>

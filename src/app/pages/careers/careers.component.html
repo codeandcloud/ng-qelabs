@@ -16,19 +16,21 @@
     </div>
 
 
-    <div>
-      <app-open-roles [role]="role"></app-open-roles>
 
-    </div>
+    <app-open-roles [roles]="roles"></app-open-roles>
+
+
   </div>
 </section>
 
-<!--
+
+
 <div class="container">
-  <h2 class="text-center">JOB APPLICATION FORM</h2>
+  <h2 class="text-center fw-normal">JOB APPLICATION FORM</h2>
   <form [formGroup]="contactFrom"
-        (ngSubmit)="sendEmail($event)">
-    <div class="row">
+        (ngSubmit)="sendEmail($event)"
+        class="job-application flex-wrap d-flex">
+    <div class="row d-flex flex-row flex-wrap">
       <div class="col-lg-6 col-12">
         <div class="form-group">
           <input type="text"
@@ -47,7 +49,7 @@
                  name="email">
         </div>
       </div>
-      <div class="col-lg-4 col-12">
+      <div class="col-lg-6 col-12">
         <div class="form-group">
           <input type="text"
                  placeholder="Phone Number*"
@@ -56,7 +58,7 @@
                  name="phone">
         </div>
       </div>
-      <div class="col-lg-4 col-12">
+      <div class="col-lg-6 col-12">
         <div class="form-group">
           <input type="text"
                  placeholder="Position you are applying for*"
@@ -65,7 +67,7 @@
                  formControlName="position">
         </div>
       </div>
-      <div class="col-lg-4 col-12">
+      <div class="col-lg-6 col-12">
         <div class="form-group">
           <input type="text"
                  placeholder="Portfolio Link"
@@ -107,4 +109,4 @@
       </div>
     </div>
   </form>
-</div> -->
+</div>

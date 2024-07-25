@@ -6,3 +6,70 @@
   color: #444;
 }
 
+h1,
+h2 {
+  font-weight: 400;
+}
+
+.row {
+  .col-12 {
+    padding: 1rem;
+  }
+}
+.job-application .form-group {
+  margin: 25px;
+}
+form {
+  max-width: 900px;
+  margin: 75px auto;
+  border: 1px solid #b0b0b0;
+  padding: 25px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-clip: padding-box;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (min-width: 992px) {
+  .col-lg-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
+
+@media (max-width: 992px) {
+  .col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+.form-control {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid #666;
+  background: transparent;
+}
+
+label {
+  color: #7c7c7c;
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 480px) {
+  .col-12 {
+    width: 82%;
+  }
+}

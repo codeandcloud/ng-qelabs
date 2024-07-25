@@ -1,5 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MetaService } from '../../services/meta.service';
+import { OpenRolesComponent } from "../../components/open-roles/open-roles.component";
+
+
 
 @Component({
   selector: 'app-home',
@@ -12,6 +15,7 @@ export class HomeComponent implements OnInit {
   private metaService = inject(MetaService);
 
   file?: File;
+
 
   ngOnInit(): void {
     this.metaService.updateMeta({

@@ -26,7 +26,7 @@ import { title } from 'process';
 export class CareersComponent implements OnInit {
   private metaService = inject(MetaService);
   banner!: Banner;
-  role: Role[] = [];
+  roles: Role[] = [];
   contactFrom!: FormGroup;
   loading: boolean = false;
   file?: File;
@@ -59,15 +59,37 @@ export class CareersComponent implements OnInit {
   };
 
   getOpenRole(): void {
-    this.role = [
+    this.roles = [
       {
-        title: 'WEB DESIGN',
-        experience: 'ghs',
-        location: 'hjghgjhg',
-        position: 'ghdsgf',
-        skill: 'jdsja',
+        title: 'ASP.NET Developer',
+        experience: '3-4 years',
+        location: 'kochi',
+        position: 'Permanent',
+        skill: '',
+      },
+      {
+        title: 'ASP.NET Developer',
+        experience: '3-4 years',
+        location: 'kochi',
+        position: 'Permanent',
+        skill: '',
+      },
+      {
+        title: 'ASP.NET Developer',
+        experience: '3-4 years',
+        location: 'kochi',
+        position: 'Permanent',
+        skill: '',
+      },
+      {
+        title: 'ASP.NET Developer',
+        experience: '3-4 years',
+        location: 'kochi',
+        position: 'Permanent',
+        skill: '',
       },
     ];
+    console.log(this.roles);
   }
 
   async sendEmail(data: Event) {
