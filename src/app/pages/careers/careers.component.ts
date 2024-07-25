@@ -1,5 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MetaService } from '../../services/meta.service';
+import { Banner } from '../../models/banner.type';
+import { PageBannerComponent } from '../../components/page-banner/page-banner.component';
+import { OpenRolesComponent } from '../../components/open-roles/open-roles.component';
+
 import {
   FormBuilder,
   FormGroup,
@@ -10,21 +14,27 @@ import emailjs from '@emailjs/browser';
 // import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 // import { storage } from '../../firebase/firebase.init';
 import { MailService } from '../../services/mail.service';
+import { Role } from '../../models/role.type';
+import { title } from 'process';
 @Component({
   selector: 'app-careers',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, PageBannerComponent, OpenRolesComponent],
   templateUrl: './careers.component.html',
   styleUrl: './careers.component.css',
 })
 export class CareersComponent implements OnInit {
   private metaService = inject(MetaService);
+  banner!: Banner;
+  role: Role[] = [];
   contactFrom!: FormGroup;
   loading: boolean = false;
   file?: File;
 
   constructor(public fb: FormBuilder, public service: MailService) {}
   ngOnInit(): void {
+    this.setBanner();
+    this.getOpenRole();
     this.metaService.updateMeta({
       slug: 'careers',
       description: 'Quantum Edge Labs | Careers',
@@ -38,6 +48,26 @@ export class CareersComponent implements OnInit {
       cv_file: [null],
       message: [null],
     });
+  }
+
+  setBanner = () => {
+    this.banner = {
+      title: 'careers',
+      description: `At Quantum Edge, we're passionate about building a team of innovative minds driven by technology's endless possibilities. Join us in shaping the future of cutting-edge solutions and make a real impact.`,
+      image: 'images/careers/careers.png',
+    };
+  };
+
+  getOpenRole(): void {
+    this.role = [
+      {
+        title: 'WEB DESIGN',
+        experience: 'ghs',
+        location: 'hjghgjhg',
+        position: 'ghdsgf',
+        skill: 'jdsja',
+      },
+    ];
   }
 
   async sendEmail(data: Event) {

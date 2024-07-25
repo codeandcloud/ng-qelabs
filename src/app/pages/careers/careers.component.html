@@ -1,5 +1,31 @@
+<app-page-banner [banner]="banner"></app-page-banner>
+<section>
+  <div class="container">
+    <div class="text-center">
+      <h1> WHY JOIN US?</h1>
+      <p>Discover a workplace that values creativity, encourages continuous learning, and fosters a collaborative
+        environment. We offer opportunities to work on groundbreaking projects, alongside industry experts, providing an
+        atmosphere where your ideas and contributions truly matter.
+      </p>
+      <p>
+        Explore exciting career paths tailored to your expertise and ambitions. At Quantum Edge, we're committed to
+        nurturing talent, empowering growth, and creating an inclusive workplace that thrives on diversity and
+        innovation.
+      </p>
+      <h1>OPEN ROLES</h1>
+    </div>
+
+
+    <div>
+      <app-open-roles [role]="role"></app-open-roles>
+
+    </div>
+  </div>
+</section>
+
+<!--
 <div class="container">
-  <h2>JOB APPLICATION FORM</h2>
+  <h2 class="text-center">JOB APPLICATION FORM</h2>
   <form [formGroup]="contactFrom"
         (ngSubmit)="sendEmail($event)">
     <div class="row">
@@ -81,4 +107,4 @@
       </div>
     </div>
   </form>
-</div>
+</div> -->
