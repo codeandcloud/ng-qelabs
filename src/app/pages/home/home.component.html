@@ -17,15 +17,9 @@
         <li><span>Progress</span></li>
         <li><span>Advancement</span></li> -->
       </ul>
-
     </div>
-
   </div>
 </div>
-
-
-
-
 <section class="m-0">
   <div class="about">
     <div class="container">
@@ -103,7 +97,6 @@
     </div>
   </div>
 </section>
-
 <section>
   <div class="projects">
     <div class="container">
@@ -117,73 +110,10 @@
             Odyssey with Our Bespoke Solutions, Shaping Tomorrow's Success Today.</p>
         </div>
       </div>
-      <div class="owl-carousel owl-theme qelabs-projects owl-loaded owl-drag">
-        <div class="owl-stage-outer">
-          <div class="owl-stage d-flex flex-row">
-
-
-            <div class="owl-item cloned d-flex p-2">
-              <div class="item">
-                <div class="project-block"><img src="images/projects/curriculum-works.png"></div>
-                <!--style="background-image: url('images/home/mission.png');"-->
-                <div class="content">
-                  <h2>Quotesouk</h2>
-                  <button class="btn btn-primary">View project</button>
-                  <!-- <app-qe-button [buttonText]="buttonText"
-                                 [disabled]="isButtonDisabled"
-                                 (buttonClicked)="handleButtonClick()">
-                  </app-qe-button> -->
-                </div>
-              </div>
-
-
-
-            </div>
-            <div class="owl-item cloned d-flex p-2">
-              <div class="item">
-                <div class="project-block"><img src="images/projects/eazyl.png"></div>
-                <!--style="background-image: url('images/home/mission.png');"-->
-                <div class="content">
-                  <h2>eazyl</h2>
-                  <button class="btn btn-primary">View project</button>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="owl-item cloned d-flex p-2">
-              <div class="item">
-                <div class="project-block"><img src="images/projects/nvironment-planning.png"></div>
-                <!--style="background-image: url('images/home/mission.png');"-->
-
-                <div class="content">
-                  <h2>Environment Planning</h2>
-                  <button class="btn btn-primary">View project</button>
-                </div>
-              </div>
-
-
-
-            </div>
-          </div>
-        </div>
-
-        <div class="owl-nav">
-          <button type="button"
-                  role="presentation"
-                  class="owl-prev"><span aria-label="Previous">‹</span></button>
-
-          <button type="button"
-                  role="presentation"
-                  class="owl-next"><span aria-label="Next">›</span></button>
-        </div>
-
-      </div>
+      <app-home-carousel [carouselItems]="carouselItems"></app-home-carousel>
     </div>
   </div>
-
 </section>
-
 <section>
   <div class="qelabs-contact">
     <div class="container">
