@@ -1,5 +1,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "../public/css/variables.css";
+@import "../public/css/owl-carousel.custom.css";
 
 *,
 *::before,
@@ -123,25 +124,6 @@ ul[role="menu"] {
       + .row {
         margin-top: 0;
       }
-    }
-  }
-}
-
-.owl-carousel {
-  .owl-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30rem !important;
-    a,
-    a:active,
-    a:hover {
-      color: var(--clr-primary);
-      cursor: pointer;
-      text-decoration: none;
-    }
-    label {
-      font-size: 1.2rem;
     }
   }
 }

@@ -1,0 +1,18 @@
+.owl-carousel {
+  .owl-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32rem !important;
+    a,
+    a:active,
+    a:hover {
+      color: var(--clr-primary);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    label {
+      font-size: 1.2rem;
+    }
+  }
+}
