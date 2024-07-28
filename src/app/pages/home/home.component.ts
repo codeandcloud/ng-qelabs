@@ -1,4 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, afterNextRender, inject } from '@angular/core';
+import Typed from 'typed.js';
 import { MetaService } from '../../services/meta.service';
 import { Banner } from '../../models/banner.type';
 import { QeButtonComponent } from '../../components/qe-button/qe-button.component';
@@ -20,6 +21,23 @@ export class HomeComponent implements OnInit {
   carouselItems: CarouselItem[] = [];
   buttonText = 'View Project';
   isButtonDisabled!: false;
+
+  constructor() {
+    afterNextRender(() => {
+      new Typed('#typed-text', {
+        loop: true,
+        strings: [
+          'Evolution',
+          'Advancement',
+          'Growth',
+          'Innovation',
+          'Progress',
+        ],
+        showCursor: false,
+        typeSpeed: 25,
+      });
+    });
+  }
 
   ngOnInit(): void {
     this.metaService.updateMeta({
