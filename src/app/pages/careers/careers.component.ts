@@ -5,14 +5,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-// import {
-//   Storage,
-//   getDownloadURL,
-//   ref,
-//   uploadBytesResumable,
-// } from '@angular/fire/storage';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import emailjs from '@emailjs/browser';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { db } from '../../configs/firebase.config';
 import { MailService } from '../../services/mail.service';
 import { MetaService } from '../../services/meta.service';
 import { PageBannerComponent } from '../../components/page-banner/page-banner.component';
@@ -37,7 +33,6 @@ import { environment } from '../../../environments/environment';
   styleUrl: './careers.component.css',
 })
 export class CareersComponent implements OnInit, OnDestroy {
-  // private storage = inject(Storage);
   private metaService = inject(MetaService);
   private toastService = inject(ToastService);
   banner!: Banner;
@@ -98,7 +93,7 @@ export class CareersComponent implements OnInit, OnDestroy {
 
   async sendEmail(data: Event) {
     this.loading = true;
-    // const downloadURL = await this.uploadFile();
+    const downloadURL = await this.uploadFile();
     // console.log(downloadURL);
     const careersForm = data.target as HTMLFormElement;
     emailjs
@@ -128,23 +123,23 @@ export class CareersComponent implements OnInit, OnDestroy {
     this.file = event.target.files[0];
   }
 
-  // async uploadFile() {
-  //   if (!this.file) {
-  //     return '';
-  //   }
-  //   let downloadURL = '';
-  //   try {
-  //     const url = `resumes/${this.file.name}`;
-  //     const storageRef = ref(this.storage, url);
-  //     var snapshot = await uploadBytesResumable(storageRef, this.file);
-  //     console.log('Uploaded a blob or file!', snapshot);
-  //     downloadURL = await getDownloadURL(snapshot.ref);
-  //     console.log('File available at', downloadURL);
-  //     return downloadURL;
-  //   } catch (error) {
-  //     console.log(error);
-  //   } finally {
-  //     return downloadURL;
-  //   }
-  // }
+  async uploadFile() {
+    if (!this.file) {
+      return '';
+    }
+    let downloadURL = '';
+    try {
+      const url = `resumes/${this.file.name}`;
+      const storageRef = ref(db, url);
+      var snapshot = await uploadBytes(storageRef, this.file);
+      console.log('Uploaded a blob or file!', snapshot);
+      downloadURL = await getDownloadURL(snapshot.ref);
+      console.log('File available at', downloadURL);
+      return downloadURL;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      return downloadURL;
+    }
+  }
 }
