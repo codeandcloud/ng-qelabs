@@ -1,21 +1,25 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { MetaService } from '../../services/meta.service';
-import { Banner } from '../../models/banner.type';
-import { PageBannerComponent } from '../../components/page-banner/page-banner.component';
-import { OpenRolesComponent } from '../../components/open-roles/open-roles.component';
-
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+// import {
+//   Storage,
+//   getDownloadURL,
+//   ref,
+//   uploadBytesResumable,
+// } from '@angular/fire/storage';
 import emailjs from '@emailjs/browser';
-// import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-// import { storage } from '../../firebase/firebase.init';
 import { MailService } from '../../services/mail.service';
+import { MetaService } from '../../services/meta.service';
+import { PageBannerComponent } from '../../components/page-banner/page-banner.component';
+import { OpenRolesComponent } from '../../components/open-roles/open-roles.component';
+import { Banner } from '../../models/banner.type';
 import { Role } from '../../models/role.type';
-import { title } from 'process';
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-careers',
   standalone: true,
@@ -24,6 +28,7 @@ import { title } from 'process';
   styleUrl: './careers.component.css',
 })
 export class CareersComponent implements OnInit {
+  private storage = inject(Storage);
   private metaService = inject(MetaService);
   banner!: Banner;
   roles: Role[] = [];
@@ -95,22 +100,27 @@ export class CareersComponent implements OnInit {
   async sendEmail(data: Event) {
     this.loading = true;
     // const downloadURL = await this.uploadFile();
-    const form = data.target as HTMLFormElement;
-    console.log(form);
-    // emailjs
-    //   .sendForm('service_w036nuv', 'template_rxl7wqr', form, {
-    //     publicKey: 'V08l-WfCBVyrm2dLo',
-    //   })
-    //   .then(
-    //     (res) => {
-    //       this.contactFrom.reset();
-    //       this.loading = false;
-    //     },
-    //     (error: any) => {
-    //       console.log(error, 'er');
-    //       this.loading = false;
-    //     }
-    //   );
+    // console.log(downloadURL);
+    const careersForm = data.target as HTMLFormElement;
+    emailjs
+      .sendForm(
+        environment.emailjsConfig.serviceID,
+        environment.emailjsConfig.careersTemplateID,
+        careersForm,
+        {
+          publicKey: environment.emailjsConfig.publicKey,
+        }
+      )
+      .then(
+        (res) => {
+          this.contactFrom.reset();
+          this.loading = false;
+        },
+        (error: any) => {
+          console.log(error, 'er');
+          this.loading = false;
+        }
+      );
   }
 
   onFileChange(event: any) {
@@ -123,8 +133,9 @@ export class CareersComponent implements OnInit {
   //   }
   //   let downloadURL = '';
   //   try {
-  //     const storageRef = ref(storage, this.file.name);
-  //     var snapshot = await uploadBytes(storageRef, this.file);
+  //     const url = `resumes/${this.file.name}`;
+  //     const storageRef = ref(this.storage, url);
+  //     var snapshot = await uploadBytesResumable(storageRef, this.file);
   //     console.log('Uploaded a blob or file!', snapshot);
   //     downloadURL = await getDownloadURL(snapshot.ref);
   //     console.log('File available at', downloadURL);

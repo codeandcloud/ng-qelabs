@@ -6,10 +6,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import { QeButtonComponent } from '../../components/qe-button/qe-button.component';
 import { Banner } from '../../models/banner.type';
 import { PageBannerComponent } from '../../components/page-banner/page-banner.component';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -59,13 +60,14 @@ export class ContactComponent implements OnInit {
 
   public sendEmail(data: Event) {
     this.loading = true;
+    const contactForm = data.target as HTMLFormElement;
     emailjs
       .sendForm(
-        'service_w036nuv',
-        'template_11235ym',
-        data.target as HTMLFormElement,
+        environment.emailjsConfig.serviceID,
+        environment.emailjsConfig.contactTemplateID,
+        contactForm,
         {
-          publicKey: 'V08l-WfCBVyrm2dLo',
+          publicKey: environment.emailjsConfig.publicKey,
         }
       )
       .then(
