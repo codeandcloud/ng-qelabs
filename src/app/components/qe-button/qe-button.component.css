@@ -6,7 +6,6 @@
   border: 0;
   border-radius: 1.5rem;
   color: var(--bg-primary) !important;
-  cursor: pointer;
   font-family: var(--font-family);
   font-size: 1.1rem;
   height: 40px;
@@ -28,5 +27,8 @@
     &:hover {
       background: var(--clr-primary);
     }
+  }
+  & * {
+    cursor: pointer;
   }
 }

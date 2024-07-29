@@ -1,7 +1,7 @@
-import { Component, input } from '@angular/core';
+import { afterNextRender, Component, inject, input } from '@angular/core';
 import { Role } from '../../models/role.type';
 import { QeButtonComponent } from '../qe-button/qe-button.component';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-open-roles',
   standalone: true,
@@ -10,11 +10,12 @@ import { QeButtonComponent } from '../qe-button/qe-button.component';
   styleUrl: './open-roles.component.css',
 })
 export class OpenRolesComponent {
+  private router = inject(Router);
   roles = input.required<Role[]>();
   buttonText = 'Apply Now';
   isButtonDisabled!: false;
 
   handleButtonClick = () => {
-    console.log('data');
+    this.router.navigate(['/careers'], { fragment: 'job-application-form' });
   };
 }

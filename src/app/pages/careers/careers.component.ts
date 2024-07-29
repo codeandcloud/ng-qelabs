@@ -28,7 +28,7 @@ import { environment } from '../../../environments/environment';
   styleUrl: './careers.component.css',
 })
 export class CareersComponent implements OnInit {
-  private storage = inject(Storage);
+  // private storage = inject(Storage);
   private metaService = inject(MetaService);
   banner!: Banner;
   roles: Role[] = [];
@@ -66,30 +66,16 @@ export class CareersComponent implements OnInit {
   getOpenRole(): void {
     this.roles = [
       {
-        title: 'ASP.NET Developer',
+        title: 'Angular Internship',
         experience: '3-4 years',
-        location: 'kochi',
+        location: 'Remote',
         position: 'Permanent',
         skill: '',
       },
       {
-        title: 'ASP.NET Developer',
+        title: '.NET Core Developer',
         experience: '3-4 years',
-        location: 'kochi',
-        position: 'Permanent',
-        skill: '',
-      },
-      {
-        title: 'ASP.NET Developer',
-        experience: '3-4 years',
-        location: 'kochi',
-        position: 'Permanent',
-        skill: '',
-      },
-      {
-        title: 'ASP.NET Developer',
-        experience: '3-4 years',
-        location: 'kochi',
+        location: 'Remote',
         position: 'Permanent',
         skill: '',
       },
