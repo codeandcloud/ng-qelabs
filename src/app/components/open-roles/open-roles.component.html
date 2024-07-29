@@ -1,35 +1,24 @@
-<div class="container">
+<div class="container my-4">
   <div class="d-flex flex-wrap position">
-    @for(roles of roles(); track roles) {
-
-    <div class="col-12 col-lg-6">
-      <div class="block d-flex align-item-center flex-wrap flex-row">
-        <div class="col-md-8 col-12 sub-block">
-          <div>
-            <h3>{{roles.title}}</h3>
-          </div>
-
-          <div class="d-flex head align-items-center">
-            <h4>Experience:</h4>
-            <p>{{roles.experience}}</p>
-          </div>
-
-          <div class="d-flex head align-items-center">
-            <h4>Location:</h4>
-            <p>{{roles.location}}</p>
-          </div>
-
-          <div class="d-flex head  align-items-center">
-            <h4>Position:</h4>
-            <p>{{roles.position}}</p>
-          </div>
-
-          <!-- <div class="d-flex head  align-items-center">
-            <h4>Skill:</h4>
-            <p>{{roles.skill}}</p>
-          </div> -->
+    @for(role of roles(); track role) {
+    <div class="col-12 col-lg-6 open-role">
+      <h3>{{role.title}}</h3>
+      <div class="row">
+        <div class="col-6">
+          <section>
+            <strong>Experience: </strong>
+            <span>{{role.experience}}</span>
+          </section>
+          <section>
+            <strong>Location: </strong>
+            <span>{{role.location}}</span>
+          </section>
+          <section>
+            <strong>Position: </strong>
+            <span>{{role.position}}</span>
+          </section>
         </div>
-        <div class="cls-button col-md-4 col-12 d-flex justify-content-center">
+        <div class="col-6">
           <app-qe-button [buttonText]="buttonText"
                          [disabled]="isButtonDisabled"
                          (buttonClicked)="handleButtonClick()">
