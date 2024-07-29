@@ -18,15 +18,13 @@
   </div>
 </section>
 
-
-
 <div class="container">
   <h2 id="job-application-form"
       class="text-center fw-normal">JOB APPLICATION FORM</h2>
-  <form [formGroup]="contactFrom"
-        (ngSubmit)="sendEmail($event)"
-        class="job-application flex-wrap d-flex">
-    <div class="row d-flex flex-row flex-wrap">
+  <form class="qe-form"
+        [formGroup]="careerFrom"
+        (ngSubmit)="sendEmail($event)">
+    <div class="row">
       <div class="col-lg-6 col-12">
         <div class="form-group">
           <input type="text"
@@ -38,13 +36,15 @@
       </div>
       <div class="col-lg-6 col-12">
         <div class="form-group">
-          <input type="Email"
+          <input type="email"
                  placeholder="Email*"
                  class="form-control"
                  formControlName="email"
                  name="email">
         </div>
       </div>
+    </div>
+    <div class="row">
       <div class="col-lg-6 col-12">
         <div class="form-group">
           <input type="text"
@@ -63,7 +63,9 @@
                  formControlName="position">
         </div>
       </div>
-      <div class="col-lg-6 col-12">
+    </div>
+    <div class="row">
+      <div class="col-12">
         <div class="form-group">
           <input type="text"
                  placeholder="Portfolio Link"
@@ -72,8 +74,8 @@
                  formControlName="portfolio_link">
         </div>
       </div>
-      <div class="col-lg-6 col-12">
-        <div class="form-group d-none">
+      <!-- <div class="col-lg-6 col-12">
+        <div class="form-group">
           <label for="cv">Upload CV</label>
           <input id="cv"
                  class="ms-2"
@@ -81,7 +83,9 @@
                  (change)="onFileChange($event)"
                  name="cv_file">
         </div>
-      </div>
+      </div> -->
+    </div>
+    <div class="row">
       <div class="col-12">
         <div class="form-group">
           <textarea id=""
@@ -93,16 +97,14 @@
                     placeholder="Message"></textarea>
         </div>
       </div>
-      <div class="col-12">
-        <div class="job-btn d-flex justify-content-center mt-3">
-          <button type="submit"
-                  [disabled]="contactFrom.invalid"
-                  class="btn btn-primary"> {{!loading ?'Send Your CV' : 'loading...'}}
-          </button>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+      <button type="submit"
+              [disabled]="careerFrom.invalid"
+              class="qe-button">
+        {{!loading ?'Send Your CV' : 'Sending CV...'}}
+      </button>
 
-        </div>
-
-      </div>
     </div>
   </form>
 </div>

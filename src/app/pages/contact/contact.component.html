@@ -21,8 +21,8 @@
   </div>
   <div class="qe-section contact-section">
     <h2 class="mt-4">Write To Us</h2>
-    <form [formGroup]="contactFrom"
-          class="qe-form"
+    <form class="qe-form"
+          [formGroup]="contactFrom"
           (ngSubmit)="sendEmail($event)">
 
       <div class="row">
@@ -38,7 +38,7 @@
         </div>
         <div class="col-lg-6 col-12">
           <div class="block">
-            <input type="number"
+            <input type="text"
                    name="phone"
                    placeholder="Phone Number*"
                    class="form-control"
@@ -62,8 +62,6 @@
                     title="services"
                     placeholder="Services*"
                     formControlName="services">
-              <option disabled
-                      [value]="null">Our Services*</option>
               <option value="GENERAL">GENERAL</option>
               <option value="WEB DESIGN">WEB DESIGN</option>
               <option value="WEB APPLICATION ARCHITECTURE">WEB APPLICATION ARCHITECTURE</option>
@@ -90,11 +88,11 @@
           </div>
         </div>
       </div>
-      <div class="qe-button-center my-3">
-        <app-qe-button [buttonText]="buttonText"
-                       [disabled]="contactFrom.invalid"
-                       (buttonClicked)="handleButtonClick()">
-        </app-qe-button>
+      <div class="d-flex justify-content-center mt-3">
+        <button type="submit"
+                [disabled]="contactFrom.invalid"
+                class="qe-button"> {{!loading ?'Send Message' : 'Sending Message...'}}
+        </button>
       </div>
     </form>
   </div>

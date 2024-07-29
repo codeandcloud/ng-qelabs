@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -11,11 +11,14 @@ import {
 //   ref,
 //   uploadBytesResumable,
 // } from '@angular/fire/storage';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import emailjs from '@emailjs/browser';
 import { MailService } from '../../services/mail.service';
 import { MetaService } from '../../services/meta.service';
 import { PageBannerComponent } from '../../components/page-banner/page-banner.component';
 import { OpenRolesComponent } from '../../components/open-roles/open-roles.component';
+import { ToastsContainer } from '../../helpers/toast';
+import { ToastService } from '../../services/toast.service';
 import { Banner } from '../../models/banner.type';
 import { Role } from '../../models/role.type';
 import { environment } from '../../../environments/environment';
@@ -23,16 +26,23 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-careers',
   standalone: true,
-  imports: [ReactiveFormsModule, PageBannerComponent, OpenRolesComponent],
+  imports: [
+    ReactiveFormsModule,
+    NgbTooltipModule,
+    ToastsContainer,
+    PageBannerComponent,
+    OpenRolesComponent,
+  ],
   templateUrl: './careers.component.html',
   styleUrl: './careers.component.css',
 })
-export class CareersComponent implements OnInit {
+export class CareersComponent implements OnInit, OnDestroy {
   // private storage = inject(Storage);
   private metaService = inject(MetaService);
+  private toastService = inject(ToastService);
   banner!: Banner;
   roles: Role[] = [];
-  contactFrom!: FormGroup;
+  careerFrom!: FormGroup;
   loading: boolean = false;
   file?: File;
 
@@ -44,7 +54,7 @@ export class CareersComponent implements OnInit {
       slug: 'careers',
       description: 'Quantum Edge Labs | Careers',
     });
-    this.contactFrom = this.fb.group({
+    this.careerFrom = this.fb.group({
       name: [null, Validators.required],
       email: [null, Validators.required],
       phone: [null, Validators.required],
@@ -53,6 +63,10 @@ export class CareersComponent implements OnInit {
       cv_file: [null],
       message: [null],
     });
+  }
+
+  ngOnDestroy(): void {
+    this.toastService.clear();
   }
 
   setBanner = () => {
@@ -80,7 +94,6 @@ export class CareersComponent implements OnInit {
         skill: '',
       },
     ];
-    console.log(this.roles);
   }
 
   async sendEmail(data: Event) {
@@ -99,12 +112,14 @@ export class CareersComponent implements OnInit {
       )
       .then(
         (res) => {
-          this.contactFrom.reset();
+          this.careerFrom.reset();
           this.loading = false;
+          this.toastService.showSuccessToast('Job Application Submitted');
         },
         (error: any) => {
           console.log(error, 'er');
           this.loading = false;
+          this.toastService.showErrorToast('Job Application Submission Failed');
         }
       );
   }

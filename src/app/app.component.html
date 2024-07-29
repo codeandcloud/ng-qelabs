@@ -6,7 +6,9 @@
 @if(showScroll$ | async) {
 <app-scroll-to-top (scrollToTop)="onScrollToTop()"></app-scroll-to-top>
 }
-<app-toasts></app-toasts>
+<app-toasts aria-live="polite"
+            aria-atomic="true">
+</app-toasts>
 
 @if (loaderService.loader) {
 <app-loader></app-loader>
