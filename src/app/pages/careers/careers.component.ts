@@ -57,6 +57,7 @@ export class CareersComponent implements OnInit, OnDestroy {
       portfolio_link: [null],
       cv_file: [null],
       message: [null],
+      link: [null]
     });
   }
 
@@ -92,9 +93,11 @@ export class CareersComponent implements OnInit, OnDestroy {
   }
 
   async sendEmail(data: Event) {
-    this.loading = true;
-    const downloadURL = await this.uploadFile();
-    // console.log(downloadURL);
+    this.loading = true; 
+    // Select the file input element
+const fileInput:any = document.getElementById('cv');
+fileInput.value = ''; // Reset the file input
+    this.careerFrom.patchValue({cv_file: null})
     const careersForm = data.target as HTMLFormElement;
     emailjs
       .sendForm(
@@ -119,8 +122,11 @@ export class CareersComponent implements OnInit, OnDestroy {
       );
   }
 
-  onFileChange(event: any) {
+ async onFileChange(event: any) {
     this.file = event.target.files[0];
+    const downloadURL = await this.uploadFile();
+    this.careerFrom.patchValue({link: downloadURL})
+    
   }
 
   async uploadFile() {

@@ -74,7 +74,7 @@ export class ContactComponent implements OnInit, OnDestroy {
   public sendEmail(data: Event) {
     this.loading = true;
     const contactForm = data.target as HTMLFormElement;
-    emailjs
+     emailjs
       .sendForm(
         environment.emailjsConfig.serviceID,
         environment.emailjsConfig.contactTemplateID,
@@ -85,7 +85,7 @@ export class ContactComponent implements OnInit, OnDestroy {
       )
       .then(
         (res) => {
-          this.contactFrom.reset();
+         this.contactFrom.reset();
           this.loading = false;
           this.toastService.showSuccessToast('Email sent successfully');
         },
@@ -94,6 +94,6 @@ export class ContactComponent implements OnInit, OnDestroy {
           this.loading = false;
           this.toastService.showErrorToast('Error sending email');
         }
-      );
+      ); 
   }
 }

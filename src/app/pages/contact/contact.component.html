@@ -58,9 +58,10 @@
         </div>
         <div class="col-lg-6 col-12">
           <div class="block">
-            <select class="form-select"
+             <select class="form-select"
                     title="services"
                     placeholder="Services*"
+                    name="services"
                     formControlName="services">
               <option value="GENERAL">GENERAL</option>
               <option value="WEB DESIGN">WEB DESIGN</option>
@@ -71,26 +72,26 @@
               <option value="SOFTWARE SUPPORT">SOFTWARE SUPPORT</option>
               <option value="ADDITIONAL TECHNICAL CONSULTATION">ADDITIONAL TECHNICAL CONSULTATION</option>
 
-            </select>
+            </select> 
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <div class="block">
-            <textarea formControlName="message"
+          <div class="block" ngSkipHydration>
+              <textarea formControlName="message"
                       name="message"
                       cols="5"
                       rows="5"
                       class="form-control"
                       placeholder="Message">
-            </textarea>
+            </textarea>   
           </div>
         </div>
       </div>
       <div class="d-flex justify-content-center mt-3">
         <button type="submit"
-                [disabled]="contactFrom.invalid"
+        [disabled]="contactFrom.invalid"
                 class="qe-button"> {{!loading ?'Send Message' : 'Sending Message...'}}
         </button>
       </div>
