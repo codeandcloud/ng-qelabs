@@ -33,8 +33,7 @@ export class HomeComponent implements OnInit {
           'Innovation',
           'Progress',
         ],
-        showCursor: false,
-        typeSpeed: 25,
+        typeSpeed: 200,
       });
     });
   }
