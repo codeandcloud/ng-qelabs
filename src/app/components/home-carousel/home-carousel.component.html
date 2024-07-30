@@ -9,8 +9,20 @@
            [title]="item.title">
       <div class="text-center">
         <label>{{item.title}}</label>
+
+        <div class="qe-button-center my-3">
+          <app-qe-button [buttonText]="buttonText"
+                         [disabled]="false"
+                         (buttonClicked)="handleButtonClick()">
+          </app-qe-button>
+        </div>
       </div>
+
     </a>
+
+
   </ng-template>
+
   }
+
 </owl-carousel-o>

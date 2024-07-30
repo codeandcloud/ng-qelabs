@@ -19,11 +19,17 @@ import { OpenRolesComponent } from '../../components/open-roles/open-roles.compo
 import { Banner } from '../../models/banner.type';
 import { Role } from '../../models/role.type';
 import { environment } from '../../../environments/environment';
+import { QeButtonComponent } from '../../components/qe-button/qe-button.component';
 
 @Component({
   selector: 'app-careers',
   standalone: true,
-  imports: [ReactiveFormsModule, PageBannerComponent, OpenRolesComponent],
+  imports: [
+    ReactiveFormsModule,
+    PageBannerComponent,
+    OpenRolesComponent,
+    QeButtonComponent,
+  ],
   templateUrl: './careers.component.html',
   styleUrl: './careers.component.css',
 })
@@ -35,6 +41,7 @@ export class CareersComponent implements OnInit {
   contactFrom!: FormGroup;
   loading: boolean = false;
   file?: File;
+  buttonText = 'Send Your CV';
 
   constructor(public fb: FormBuilder, public service: MailService) {}
   ngOnInit(): void {
@@ -112,7 +119,7 @@ export class CareersComponent implements OnInit {
   onFileChange(event: any) {
     this.file = event.target.files[0];
   }
-
+  handleButtonClick() {}
   // async uploadFile() {
   //   if (!this.file) {
   //     return '';

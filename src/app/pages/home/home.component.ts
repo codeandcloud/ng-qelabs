@@ -1,5 +1,5 @@
 import { Component, OnInit, afterNextRender, inject } from '@angular/core';
-import Typed from 'typed.js';
+import Typed from 'typed.js'
 import { MetaService } from '../../services/meta.service';
 import { Banner } from '../../models/banner.type';
 import { QeButtonComponent } from '../../components/qe-button/qe-button.component';

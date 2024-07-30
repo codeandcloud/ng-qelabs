@@ -95,10 +95,13 @@
       </div>
       <div class="col-12">
         <div class="job-btn d-flex justify-content-center mt-3">
-          <button type="submit"
-                  [disabled]="contactFrom.invalid"
-                  class="btn btn-primary"> {{!loading ?'Send Your CV' : 'loading...'}}
-          </button>
+
+          <app-qe-button [buttonText]="buttonText"
+                         [disabled]="contactFrom.invalid"
+                         (buttonClicked)="handleButtonClick()">{{!loading ?'Send Your CV' : 'loading...'}}
+          </app-qe-button>
+
+
 
         </div>
 
